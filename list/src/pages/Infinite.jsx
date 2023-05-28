@@ -11,13 +11,15 @@ function Infinite() {
       queryKey: ["people", "infinite"],
       getNextPageParam: (prevData) => prevData.nextPage,
       queryFn: ({ pageParam = 1 }) => fetchItemsInfinity("people", pageParam),
-      //   staleTime: Infinity,
+      staleTime: Infinity,
     });
 
   function onHoverOneLink(id) {
     queryClient.prefetchQuery({
       queryKey: ["people", id],
       queryFn: () => fetchItem(id),
+      //   cacheTime: Infinity,
+      staleTime: Infinity,
     });
   }
 

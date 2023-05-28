@@ -6,16 +6,18 @@ import { fetchItem } from "../functions/fetchFunctions";
 function SingleItemPage() {
   const params = useParams();
   const { data, isLoading } = useQuery({
-    queryKey: ["people", params.id],
+    queryKey: ["people", Number(params.id)],
     queryFn: () => fetchItem(params.id),
     staleTime: Infinity,
+    // cacheTime: Infinity,
   });
-  console.log("data", data);
+  console.log("people", params.id);
   return (
     <div style={{ marginTop: "2em" }}>
-      {isLoading ? (
-        <div>Loading...</div>
-      ) : (
+      {
+        // isLoading ? (
+        //   <div>Loading...</div>
+        // ) : (
         <div>
           <h1>
             <strong>{data?.name}</strong>
@@ -24,7 +26,8 @@ function SingleItemPage() {
             <strong>{data?.hair_color}</strong>
           </h4>
         </div>
-      )}
+        // )
+      }
     </div>
   );
 }
