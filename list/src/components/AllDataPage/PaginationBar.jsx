@@ -1,4 +1,4 @@
-import { buttonClick } from "../../functions/fetchFunctions";
+import { AddClick, SubClick } from "../../functions/fetchFunctions";
 
 function PaginationBar({
   peoplePage,
@@ -13,8 +13,8 @@ function PaginationBar({
       <button
         disabled={(peoplePage || planetsPage) == 1 ? true : false}
         onClick={() => {
-          setPeoplePage(buttonClick(peoplePage, list[0].data.count, "sub"));
-          setPlanetsPage(buttonClick(planetsPage, list[1].data.count, "sub"));
+          setPlanetsPage(SubClick(planetsPage, peoplePage));
+          setPeoplePage(SubClick(peoplePage, planetsPage));
         }}
         style={{ margin: "2em", paddingLeft: "1em", paddingRight: "1em" }}
       >
@@ -25,8 +25,8 @@ function PaginationBar({
       </div>
       <button
         onClick={() => {
-          setPlanetsPage(buttonClick(planetsPage, list[1].data.count, "add"));
-          setPeoplePage(buttonClick(peoplePage, list[0].data.count, "add"));
+          setPeoplePage(AddClick(peoplePage, list[0].data.count));
+          setPlanetsPage(AddClick(planetsPage, list[1].data.count));
         }}
         style={{ margin: "2em", paddingLeft: "1em", paddingRight: "1em" }}
       >

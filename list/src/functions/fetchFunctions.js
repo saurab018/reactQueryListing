@@ -5,22 +5,21 @@ export async function fetchItems(items, page) {
   return result;
 }
 
-export function buttonClick(page, count, sign) {
+export function AddClick(page, count) {
   console.log("page", page);
   let total = 0;
 
-  if (sign == "add") {
-    if (count > page * 10) {
-      total = page + 1;
-    } else {
-      total = page;
-    }
-  }
-  if (sign == "sub") {
-    if (page >= 2) total = page - 1;
-    if (page == 1) total = 1;
+  if (count > page * 10) {
+    total = page + 1;
+  } else {
+    total = page;
   }
 
-  console.log("total", total, "sign", sign == "add", "page", page, count);
+  console.log("total", total, "page", page, count);
   return total;
+}
+
+export function SubClick(state1, state2) {
+  if (state1 < state2) return state1;
+  if (state1 >= state2) return state1 - 1;
 }
