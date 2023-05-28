@@ -10,7 +10,7 @@ function ItemsCard({ list }) {
       }}
     >
       <div>
-        {list[0].data.results.map((item) => (
+        {list[0]?.data.results.map((item) => (
           <div key={item.url}>
             <strong>{item.name}</strong>
           </div>

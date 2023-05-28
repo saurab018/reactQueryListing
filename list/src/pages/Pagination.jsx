@@ -1,6 +1,6 @@
 import AllPeoplePlanets from "../components/AllDataPage/AllPeoplePlanets";
 
-function AllDataPage() {
+function Pagination() {
   return (
     <>
       <AllPeoplePlanets />
@@ -8,4 +8,4 @@ function AllDataPage() {
   );
 }
 
-export default AllDataPage;
+export default Pagination;
